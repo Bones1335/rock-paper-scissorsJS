@@ -43,12 +43,6 @@ function playRound(playerSelection, computerSelection) {
     } else 
         return console.log('Didn\'t work.');
 }
-
-//make playerSelection variable
-
-//let playerSelection = prompt('Please choose Rock, Paper, or Scissors: ');
-  //  playerSelection = playerSelection.toLowerCase();
-
 //make game function looping through 5 rounds of play
     //call playRound function 5 times
     //return wins, losses, ties
