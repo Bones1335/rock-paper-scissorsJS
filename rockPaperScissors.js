@@ -1,9 +1,22 @@
-//make variable for 'Rock'
-//make variable for 'Paper'
-//make variable for 'Scissors'
-//make computerPlay function that randomly returns 'Rock', 'Paper', or 'Scissors
-    //make variable choosing randomly between R, P, and S
-    //return computer result in variable computerSelection
+//const rock = 0; //make variable for 'Rock'
+//const paper = 1; //make variable for 'Paper'
+//const scissors = 2; //make variable for 'Scissors'
+
+function randomInt(min, max) { //make function choosing randomly between R, P, and S
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+//make computerPlay function that randomly returns 'Rock', 'Paper', or 'Scissors'
+function computerPlay() {
+    const computer = randomInt(0, 3);
+    if (computer === 0) {
+        return computerSelection = 'rock';
+    } else if (computer === 1) {
+        return computerSelection = 'paper';
+    } else if (computer === 2) {
+        return computerSelection = 'scissors';
+    } else
+        return console.log('Not working')
+}
 //make playRound function with playerSelection, computerSelection as the two parameters
     //make playerSelection variable
     //make computerSelection variable calling computerPlay function
