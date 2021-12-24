@@ -1,3 +1,7 @@
+let wins = 0;
+let losses = 0;
+let ties = 0;
+
 //make function choosing randomly between R, P, and S
 function randomInt(min, max) { 
     return Math.floor(Math.random() * (max - min)) + min;
@@ -16,37 +20,45 @@ function computerPlay() {
         return console.log('Not working')
 }
 
-//make playerSelection variable
-const playerSelection = prompt('Please choose Rock, Paper, or Scissors: ');
-
-
 //make playRound function with playerSelection, computerSelection as the two parameters
 function playRound(playerSelection, computerSelection) {
-    //make computerSelection variable calling computerPlay function
     if (playerSelection === 'rock' && computerSelection === 'rock') {
-        return console.log('It\'s a tie!');
+        return console.log('It\'s a tie!'), ties += 1;
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return console.log('Computer wins. Paper beats Rock.');
-    } else if (playerSelection === 'rock' && computerSelecion === 'scissors') {
-        return console.log('You win! Rock beats Scissors!');
+        return console.log('Computer wins. Paper beats Rock.'), losses += 1;
+    } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        return console.log('You win! Rock beats Scissors!'), wins += 1;
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return console.log('You win! Paper beats Rock!');
+        return console.log('You win! Paper beats Rock!'), wins += 1;
     } else if (playerSelection === 'paper' && computerSelection === 'paper') {
-        return console.log('It\'s a tie!');
+        return console.log('It\'s a tie!'), ties += 1;
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        return console.log('Computer wins. Scissors beat Paper.');
+        return console.log('Computer wins. Scissors beat Paper.'), losses += 1;
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return console.log('Computer wins. Rock beats scissors.');
+        return console.log('Computer wins. Rock beats scissors.'), losses += 1;
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return console.log('You win! Scissors beat Paper!');
+        return console.log('You win! Scissors beat Paper!'), wins += 1;
     } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
-        return console.log('It\s a tie!');
+        return console.log('It\s a tie!'), ties += 1;
     } else 
-        return console.log('Not working.');
-    //return results
-
+        return console.log('Didn\'t work.');
 }
-console.log(playRound(playerSelection, computerPlay()))
+
+//make playerSelection variable
+
+//let playerSelection = prompt('Please choose Rock, Paper, or Scissors: ');
+  //  playerSelection = playerSelection.toLowerCase();
+
 //make game function looping through 5 rounds of play
     //call playRound function 5 times
     //return wins, losses, ties
+function game(){
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt('Please choose Rock, Paper, or Scissors: ');
+            playerSelection = playerSelection.toLowerCase();
+        playRound(playerSelection, computerPlay());
+    }
+    return console.log(wins, losses, ties)
+}
+
+console.log(game())
