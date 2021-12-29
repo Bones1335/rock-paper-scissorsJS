@@ -2,12 +2,12 @@ let wins = 0;
 let losses = 0;
 let ties = 0;
 
-//make function choosing randomly between R, P, and S
+
 function randomInt(min, max) { 
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-//make computerPlay function that randomly returns 'Rock', 'Paper', or 'Scissors'
+
 function computerPlay() {
     const computer = randomInt(0, 3);
     if (computer === 0) {
@@ -20,7 +20,7 @@ function computerPlay() {
         return console.log('Not working')
 }
 
-//make playRound function with playerSelection, computerSelection as the two parameters
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'rock' && computerSelection === 'rock') {
         return console.log('It\'s a tie!'), ties += 1;
@@ -43,9 +43,7 @@ function playRound(playerSelection, computerSelection) {
     } else 
         return console.log('Didn\'t work.');
 }
-//make game function looping through 5 rounds of play
-    //call playRound function 5 times
-    //return wins, losses, ties
+
 //function game(){
 //    for (let i = 0; i < 5; i++) {
 //        let playerSelection = prompt('Please choose Rock, Paper, or Scissors: ');
@@ -65,7 +63,6 @@ buttons.forEach((button) => {
         const playerSelection = button.id;
         const computerSelection = computerPlay();
         playRound(playerSelection, computerSelection);
-        //console.log();
     });
 });
 
