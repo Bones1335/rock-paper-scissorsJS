@@ -46,13 +46,13 @@ function playRound(playerSelection, computerSelection) {
 //make game function looping through 5 rounds of play
     //call playRound function 5 times
     //return wins, losses, ties
-function game(){
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt('Please choose Rock, Paper, or Scissors: ');
-            playerSelection = playerSelection.toLowerCase();
-        playRound(playerSelection, computerPlay());
-    }
-    return console.log(wins, losses, ties)
-}
+//function game(){
+//    for (let i = 0; i < 5; i++) {
+//        let playerSelection = prompt('Please choose Rock, Paper, or Scissors: ');
+//            playerSelection = playerSelection.toLowerCase();
+//        playRound(playerSelection, computerPlay());
+//    }
+//    return console.log(wins, losses, ties)
+//}
 
 console.log(game())
