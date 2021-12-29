@@ -39,7 +39,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         return console.log('You win! Scissors beat Paper!'), wins += 1;
     } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
-        return console.log('It\s a tie!'), ties += 1;
+        return console.log('It\'s a tie!'), ties += 1;
     } else 
         return console.log('Didn\'t work.');
 }
@@ -58,11 +58,54 @@ function playRound(playerSelection, computerSelection) {
 
 
 const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        const playerSelection = button.id;
-        const computerSelection = computerPlay();
-        playRound(playerSelection, computerSelection);
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const playerSelection = button.id;
+            const computerSelection = computerPlay();
+            playRound(playerSelection, computerSelection);
+        });
     });
-});
 
+// Wins
+const results = document.querySelector('#results');
+
+const Wins = document.createElement('h3');
+    Wins.classList.add('Wins');
+    Wins.textContent = 'Wins';
+
+results.appendChild(Wins);
+
+const pWins = document.createElement('p');
+    pWins.classList.add('pWins');
+    
+results.appendChild(pWins);
+
+// Losses
+const Losses = document.createElement('h3');
+    Losses.classList.add('Losses');
+    Losses.textContent = 'Losses';
+
+results.appendChild(Losses);
+
+const pLosses = document.createElement('p');
+    pLosses.classList.add('pLosses');
+    
+results.appendChild(pLosses);
+
+// Ties
+const Ties = document.createElement('h3');
+    Ties.classList.add('Ties');
+    Ties.textContent = 'Ties';
+
+results.appendChild(Ties);
+
+const pTies = document.createElement('p');
+    pTies.classList.add('pTies');
+    
+results.appendChild(pTies);
+
+function result() {
+    pWins.textContent = `${wins}`;
+    pLosses.textContent = `${losses}`;
+    pTies.textContent = `${ties}`;
+};
