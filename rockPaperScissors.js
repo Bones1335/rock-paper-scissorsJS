@@ -55,4 +55,17 @@ function playRound(playerSelection, computerSelection) {
 //    return console.log(wins, losses, ties)
 //}
 
-console.log(game())
+//console.log(game())
+
+
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const playerSelection = button.id;
+        const computerSelection = computerPlay();
+        playRound(playerSelection, computerSelection);
+        //console.log();
+    });
+});
+
