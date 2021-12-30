@@ -23,25 +23,25 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'rock' && computerSelection === 'rock') {
-        return console.log('It\'s a tie!'), ties += 1;
+        return textOutput('It\'s a tie!'), ties += 1;
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return console.log('Computer wins. Paper beats Rock.'), losses += 1;
+        return textOutput('Computer wins. Paper beats Rock.'), losses += 1;
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return console.log('You win! Rock beats Scissors!'), wins += 1;
+        return textOutput('You win! Rock beats Scissors!'), wins += 1;
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return console.log('You win! Paper beats Rock!'), wins += 1;
+        return textOutput('You win! Paper beats Rock!'), wins += 1;
     } else if (playerSelection === 'paper' && computerSelection === 'paper') {
-        return console.log('It\'s a tie!'), ties += 1;
+        return textOutput('It\'s a tie!'), ties += 1;
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        return console.log('Computer wins. Scissors beat Paper.'), losses += 1;
+        return textOutput('Computer wins. Scissors beat Paper.'), losses += 1;
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return console.log('Computer wins. Rock beats scissors.'), losses += 1;
+        return textOutput('Computer wins. Rock beats scissors.'), losses += 1;
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return console.log('You win! Scissors beat Paper!'), wins += 1;
+        return textOutput('You win! Scissors beat Paper!'), wins += 1;
     } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
-        return console.log('It\'s a tie!'), ties += 1;
+        return textOutput('It\'s a tie!'), ties += 1;
     } else 
-        return console.log('Didn\'t work.');
+        return textOutput('Didn\'t work.');
 }
 
 //function game(){
@@ -63,12 +63,21 @@ const buttons = document.querySelectorAll('button');
             const playerSelection = button.id;
             const computerSelection = computerPlay();
             playRound(playerSelection, computerSelection);
+            result();
         });
     });
 
-// Wins
 const results = document.querySelector('#results');
 
+// Results displaying who won
+const textResults = document.createElement('h2');
+    textResults.classList.add('textResults');
+    
+
+
+results.appendChild(textResults);
+
+// Wins
 const Wins = document.createElement('h3');
     Wins.classList.add('Wins');
     Wins.textContent = 'Wins';
@@ -77,6 +86,7 @@ results.appendChild(Wins);
 
 const pWins = document.createElement('p');
     pWins.classList.add('pWins');
+    pWins.textContent = 0;
     
 results.appendChild(pWins);
 
@@ -89,7 +99,8 @@ results.appendChild(Losses);
 
 const pLosses = document.createElement('p');
     pLosses.classList.add('pLosses');
-    
+    pLosses.textContent = 0;
+
 results.appendChild(pLosses);
 
 // Ties
@@ -101,11 +112,16 @@ results.appendChild(Ties);
 
 const pTies = document.createElement('p');
     pTies.classList.add('pTies');
-    
+    pTies.textContent = 0;
+
 results.appendChild(pTies);
 
 function result() {
     pWins.textContent = `${wins}`;
     pLosses.textContent = `${losses}`;
     pTies.textContent = `${ties}`;
+};
+
+function textOutput(outcome) {
+    textResults.textContent = outcome;
 };
