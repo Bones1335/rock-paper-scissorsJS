@@ -44,19 +44,6 @@ function playRound(playerSelection, computerSelection) {
         return textOutput('Didn\'t work.');
 }
 
-//function game(){
-//    for (let i = 0; i < 5; i++) {
-//        let playerSelection = prompt('Please choose Rock, Paper, or Scissors: ');
-//            playerSelection = playerSelection.toLowerCase();
-//        playRound(playerSelection, computerPlay());
-//    }
-//    return console.log(wins, losses, ties)
-//}
-
-//console.log(game())
-
-
-
 const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
@@ -64,6 +51,9 @@ const buttons = document.querySelectorAll('button');
             const computerSelection = computerPlay();
             playRound(playerSelection, computerSelection);
             result();
+            wonGame(wins);
+            lostGame(losses);
+            playAgain();
         });
     });
 
@@ -124,4 +114,25 @@ function result() {
 
 function textOutput(outcome) {
     textResults.textContent = outcome;
+};
+
+function wonGame(wins) {
+    if (wins === 5) {
+        return alert('YOU WIN!!!')
+    } 
+};
+
+function lostGame(losses) {
+    if (losses === 5) {
+        return alert('Sorry, computer wins. Better luck next time!')
+    }
+};
+
+function playAgain() {
+    if (wins === 5 || losses === 5) {
+        wins = 0;
+        losses = 0;
+        ties = 0;
+        return result()
+    }
 };
